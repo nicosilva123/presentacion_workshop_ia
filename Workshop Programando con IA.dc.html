@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #070A12; }
+  * { box-sizing: border-box; }
+</style>
+</helmet>
+
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+<!-- ════════ 1 · PORTADA ════════ -->
+<section data-label="Portada" data-screen-label="Portada" data-speaker-notes="Bienvenida. Presentate y presentá a The AI Collective Buenos Aires. La idea del workshop: de una idea a un primer prototipo, sin necesidad de experiencia técnica." style="display:flex;flex-direction:column;justify-content:space-between;padding:92px 104px;background:#070A12;color:#F4F7FC;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:1180px;height:1180px;border-radius:50%;top:50%;left:62%;transform:translate(-50%,-50%);background:radial-gradient(circle at 38% 38%,rgba(242,99,43,0.26),rgba(216,68,122,0.12) 40%,rgba(42,123,228,0.18) 66%,transparent 76%);pointer-events:none;"></div>
+  <div style="position:absolute;width:560px;height:560px;border-radius:50%;bottom:-280px;left:-200px;background:radial-gradient(circle,rgba(42,123,228,0.16),transparent 62%);pointer-events:none;"></div>
+
+  <div style="display:flex;align-items:center;gap:16px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" alt="The AI Collective" style="width:50px;height:50px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.26em;text-transform:uppercase;color:#8A93A8;">The AI Collective · Buenos Aires</span>
+  </div>
+
+  <div style="position:relative;z-index:1;max-width:1320px;">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.2em;text-transform:uppercase;color:#F2843B;margin-bottom:30px;">Workshop para principiantes</div>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:104px;line-height:1.03;letter-spacing:-0.02em;margin:0;">Tus primeros pasos <br><span style="background:linear-gradient(115deg,#F2632B 0%,#D8447A 48%,#2A7BE4 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">programando con IA</span></h1>
+    <p style="font-size:36px;line-height:1.4;color:#A7B0C4;margin:36px 0 0;max-width:1000px;">De una idea a tu primer prototipo, con inteligencia artificial.</p>
+  </div>
+
+  <div style="display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;font-family:'IBM Plex Mono',monospace;font-size:24px;color:#67728A;border-top:1px solid rgba(255,255,255,0.09);padding-top:30px;">
+    <span>Workshop presencial · ~2 horas</span>
+    <span>Sin experiencia previa</span>
+  </div>
+</section>
+
+<!-- ════════ 2 · INTRO ════════ -->
+<section data-label="La programación está cambiando" data-screen-label="Intro" data-speaker-notes="Hoy la IA permite que muchas más personas pasen de una idea a un prototipo, creen herramientas simples y automaticen tareas. Esa es la oportunidad." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;top:-300px;right:-220px;background:radial-gradient(circle,rgba(242,99,43,0.13),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Por qué estamos acá</span>
+  </div>
+  <div style="flex:1;display:flex;align-items:center;gap:90px;position:relative;z-index:1;margin-top:30px;">
+    <div style="flex:1.1;">
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:78px;line-height:1.06;letter-spacing:-0.02em;margin:0;">La programación está <span style="background:linear-gradient(115deg,#F2632B,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">cambiando</span></h2>
+      <p style="font-size:34px;line-height:1.45;color:#A7B0C4;margin:34px 0 0;max-width:680px;">Hoy la IA permite pasar de una idea a algo real, mucho más rápido — y a mucha más gente.</p>
+    </div>
+    <div style="flex:0.9;display:flex;flex-direction:column;gap:24px;">
+      <div style="display:flex;align-items:center;gap:26px;padding:30px 34px;border-radius:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:40px;background:linear-gradient(120deg,#F2632B,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">01</span>
+        <span style="font-size:30px;font-weight:500;">De una idea a un primer prototipo</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:26px;padding:30px 34px;border-radius:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:40px;background:linear-gradient(120deg,#F2632B,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">02</span>
+        <span style="font-size:30px;font-weight:500;">Automatizar tareas repetitivas</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:26px;padding:30px 34px;border-radius:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);">
+        <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:40px;background:linear-gradient(120deg,#F2632B,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">03</span>
+        <span style="font-size:30px;font-weight:500;">Entender cómo se construye software</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 3 · QR GRUPO DE DIFUSIÓN ════════ -->
+<section data-label="Sumate al grupo" data-screen-label="QR grupo difusión" data-speaker-notes="Antes de arrancar: sumate al grupo de difusión de The AI Collective Buenos Aires por WhatsApp. Ahí avisamos los próximos eventos, talleres y novedades. Escaneá el QR con la cámara o desde WhatsApp." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:680px;height:680px;border-radius:50%;bottom:-320px;left:-240px;background:radial-gradient(circle,rgba(42,123,228,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="position:absolute;width:640px;height:640px;border-radius:50%;top:-300px;right:-220px;background:radial-gradient(circle,rgba(242,99,43,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Sumate a la comunidad</span>
+  </div>
+  <div style="flex:1;display:flex;align-items:center;gap:90px;position:relative;z-index:1;margin-top:24px;">
+    <div style="flex:1.1;">
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.06;letter-spacing:-0.02em;margin:0;">Unite al <span style="background:linear-gradient(115deg,#F2632B,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">grupo de difusión</span></h2>
+      <p style="font-size:34px;line-height:1.45;color:#A7B0C4;margin:34px 0 0;max-width:660px;">Enterate de los próximos eventos, talleres y novedades de The AI Collective Buenos Aires.</p>
+      <div style="display:flex;align-items:center;gap:18px;margin-top:40px;padding:22px 30px;border-radius:16px;background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.32);width:fit-content;">
+        <span style="width:14px;height:14px;border-radius:50%;background:#25D366;flex-shrink:0;"></span>
+        <span style="font-size:28px;font-weight:600;color:#E4E9F2;">Escaneá el QR con la cámara de WhatsApp</span>
+      </div>
+    </div>
+    <div style="flex:0.9;display:flex;justify-content:center;">
+      <div style="background:#FFFFFF;border-radius:28px;padding:40px;box-shadow:0 30px 80px rgba(0,0,0,0.4);display:flex;width:fit-content;">
+        <img src="assets/wsp_qr.png" alt="QR grupo de WhatsApp" style="width:380px;height:380px;display:block;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 4 · AGENDA ════════ -->
+<section data-label="Qué vamos a ver hoy" data-screen-label="Agenda" data-speaker-notes="Tres etapas: teoría básica para entender los conceptos, casos de uso reales, y una guía para seguir aprendiendo después del evento." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;top:-280px;right:-200px;background:radial-gradient(circle,rgba(242,99,43,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Agenda</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">Qué vamos a ver hoy</h2>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;position:relative;z-index:1;margin-top:48px;">
+    <div style="display:flex;flex-direction:column;padding:48px 40px;border-radius:24px;background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.09);">
+      <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:96px;line-height:1;background:linear-gradient(120deg,#F2632B,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">01</span>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:40px;margin:30px 0 14px;">Teoría básica</div>
+      <div style="font-size:27px;color:#8C96AC;line-height:1.45;margin-top:auto;">Los conceptos clave: modelos, agentes, tokens y contexto.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;padding:48px 40px;border-radius:24px;background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.09);">
+      <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:96px;line-height:1;background:linear-gradient(120deg,#F2632B,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">02</span>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:40px;margin:30px 0 14px;">Casos de uso</div>
+      <div style="font-size:27px;color:#8C96AC;line-height:1.45;margin-top:auto;">Ver la IA en acción, de un portafolio a un agente propio.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;padding:48px 40px;border-radius:24px;background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.09);">
+      <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:96px;line-height:1;background:linear-gradient(120deg,#F2632B,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">03</span>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:40px;margin:30px 0 14px;">¿Cómo seguimos?</div>
+      <div style="font-size:27px;color:#8C96AC;line-height:1.45;margin-top:auto;">Tu guía clara para seguir aprendiendo después del evento.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ DIVIDER 01 ════════ -->
+<section data-label="Etapa 1 · Teoría básica" data-screen-label="Divider Etapa 1" data-speaker-notes="Arrancamos con la teoría mínima indispensable. Pocos conceptos, bien claros." style="display:flex;flex-direction:column;justify-content:center;padding:104px;background:linear-gradient(125deg,#F2632B 0%,#D8447A 46%,#2A7BE4 100%);color:#FFFFFF;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <img src="assets/aic_logo_transparente.png" style="position:absolute;width:760px;height:760px;top:50%;right:-180px;transform:translateY(-50%);opacity:0.12;pointer-events:none;">
+  <div style="position:relative;z-index:1;">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.82);margin-bottom:24px;">Etapa 01</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:130px;line-height:1;letter-spacing:-0.025em;margin:0;">Teoría básica</h2>
+    <p style="font-size:38px;line-height:1.4;color:rgba(255,255,255,0.9);margin:38px 0 0;max-width:920px;">Los conceptos que necesitás para empezar a usar IA con confianza.</p>
+  </div>
+</section>
+
+<!-- ════════ 5 · MODELO VS AGENTE ════════ -->
+<section data-label="Modelo vs. Agente" data-screen-label="Modelo vs Agente" data-speaker-notes="La distinción más importante del día. Un modelo responde; un agente hace. Todo lo demás cuelga de esto." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 1 · Teoría básica</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">Modelo <span style="color:#5C6880;">vs.</span> Agente</h2>
+  <div style="flex:1;display:flex;align-items:center;gap:34px;position:relative;z-index:1;">
+    <div style="flex:1;padding:54px 48px;border-radius:26px;background:rgba(242,99,43,0.07);border:1px solid rgba(242,99,43,0.32);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.16em;text-transform:uppercase;color:#F2843B;margin-bottom:18px;">Modelo</div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:54px;margin-bottom:22px;">Responde</div>
+      <div style="font-size:29px;line-height:1.5;color:#B7BFD0;">Recibe texto y devuelve texto. Piensa, pero no actúa por su cuenta.</div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;width:96px;height:96px;border-radius:50%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:30px;color:#8C96AC;flex-shrink:0;">vs</div>
+    <div style="flex:1;padding:54px 48px;border-radius:26px;background:rgba(42,123,228,0.08);border:1px solid rgba(42,123,228,0.34);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.16em;text-transform:uppercase;color:#5FA0EE;margin-bottom:18px;">Agente</div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:54px;margin-bottom:22px;">Hace</div>
+      <div style="font-size:29px;line-height:1.5;color:#B7BFD0;">Usa un modelo + herramientas para cumplir un objetivo, paso a paso.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 6 · QUÉ ES UN MODELO ════════ -->
+<section data-label="¿Qué es un modelo?" data-screen-label="Qué es un modelo" data-speaker-notes="Un modelo es, en esencia, un predictor de la siguiente palabra entrenado con muchísimo texto. Entra texto, sale texto." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;top:-300px;right:-220px;background:radial-gradient(circle,rgba(242,99,43,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 1 · Teoría básica</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">¿Qué es un modelo?</h2>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:60px;position:relative;z-index:1;">
+    <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:48px;line-height:1.25;margin:0;max-width:1200px;">Un <span style="background:linear-gradient(115deg,#F2632B,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">cerebro entrenado</span> con muchísimo texto.</p>
+    <div style="display:flex;align-items:center;gap:30px;">
+      <div style="padding:30px 40px;border-radius:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);font-size:30px;font-weight:500;color:#C7CEDC;">Texto de entrada</div>
+      <span style="font-size:46px;color:#5C6880;">→</span>
+      <div style="padding:30px 44px;border-radius:18px;background:linear-gradient(120deg,rgba(242,99,43,0.16),rgba(42,123,228,0.16));border:1px solid rgba(255,255,255,0.18);font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:600;">Modelo</div>
+      <span style="font-size:46px;color:#5C6880;">→</span>
+      <div style="padding:30px 40px;border-radius:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);font-size:30px;font-weight:500;color:#C7CEDC;">Texto de salida</div>
+    </div>
+    <p style="font-size:31px;color:#8C96AC;margin:0;max-width:1100px;line-height:1.45;">Su superpoder: predecir la siguiente palabra. Nada más… y nada menos.</p>
+  </div>
+</section>
+
+<!-- ════════ 7 · QUÉ ES UN AGENTE ════════ -->
+<section data-label="¿Qué es un agente?" data-screen-label="Qué es un agente" data-speaker-notes="Un agente le da manos al modelo: le sumás herramientas y un objetivo, y trabaja en un ciclo de pensar, actuar y observar hasta lograrlo." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;bottom:-320px;left:-220px;background:radial-gradient(circle,rgba(42,123,228,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 1 · Teoría básica</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">¿Qué es un agente?</h2>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:58px;position:relative;z-index:1;">
+    <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:48px;line-height:1.25;margin:0;max-width:1240px;">Un modelo que puede <span style="background:linear-gradient(115deg,#F2632B,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">usar herramientas y trabajar solo.</span></p>
+    <div style="display:flex;align-items:center;gap:24px;">
+      <div style="padding:28px 38px;border-radius:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);font-size:29px;font-weight:600;">Piensa</div>
+      <span style="font-size:42px;color:#5C6880;">→</span>
+      <div style="padding:28px 38px;border-radius:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);font-size:29px;font-weight:600;">Actúa</div>
+      <span style="font-size:42px;color:#5C6880;">→</span>
+      <div style="padding:28px 38px;border-radius:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);font-size:29px;font-weight:600;">Observa</div>
+      <span style="font-size:42px;color:#5C6880;">↺</span>
+      <div style="padding:28px 38px;border-radius:18px;background:linear-gradient(120deg,rgba(242,99,43,0.16),rgba(42,123,228,0.16));border:1px solid rgba(255,255,255,0.18);font-size:29px;font-weight:600;">Repite</div>
+    </div>
+    <p style="font-size:31px;color:#8C96AC;margin:0;max-width:1100px;line-height:1.45;">Le das un objetivo; él decide los pasos para llegar.</p>
+  </div>
+</section>
+
+<!-- ════════ 8 · VIBE CODING ════════ -->
+<section data-label="¿Qué es vibe coding?" data-screen-label="Vibe coding" data-speaker-notes="Vibe coding: programar describiendo lo que querés en lenguaje natural. Vos ponés la intención, la IA escribe el código." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;top:-300px;right:-220px;background:radial-gradient(circle,rgba(242,99,43,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 1 · Teoría básica</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">¿Qué es <span style="background:linear-gradient(115deg,#F2632B,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">vibe coding</span>?</h2>
+  <div style="flex:1;display:flex;align-items:center;gap:80px;position:relative;z-index:1;">
+    <div style="flex:1;">
+      <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:46px;line-height:1.25;margin:0;">Programar <span style="color:#F2843B;">describiendo</span> lo que querés, no escribiendo cada línea.</p>
+      <p style="font-size:31px;color:#8C96AC;margin:34px 0 0;line-height:1.45;">Vos ponés la idea. La IA pone el código.</p>
+    </div>
+    <div style="flex:1;border-radius:20px;background:#0E1626;border:1px solid rgba(255,255,255,0.12);overflow:hidden;font-family:'IBM Plex Mono',monospace;">
+      <div style="display:flex;align-items:center;gap:9px;padding:18px 24px;border-bottom:1px solid rgba(255,255,255,0.09);">
+        <span style="width:13px;height:13px;border-radius:50%;background:#F2632B;"></span>
+        <span style="width:13px;height:13px;border-radius:50%;background:#E0A33C;"></span>
+        <span style="width:13px;height:13px;border-radius:50%;background:#2A7BE4;"></span>
+      </div>
+      <div style="padding:34px 30px;font-size:25px;line-height:1.6;">
+        <div style="color:#5FA0EE;">tú ▸</div>
+        <div style="color:#E4E9F2;margin:6px 0 26px;">"Hacé una web para mi portafolio,<br>con mis proyectos y un formulario."</div>
+        <div style="color:#F2843B;">IA ▸</div>
+        <div style="color:#7FC79A;margin-top:6px;">› generando index.html …<br>› creando estilos …<br>› listo ✓</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 9 · QUÉ ES UN TOKEN ════════ -->
+<section data-label="¿Qué es un token?" data-screen-label="Qué es un token" data-speaker-notes="La IA no procesa palabras enteras, sino fragmentos llamados tokens. Regla práctica: un token es aproximadamente 4 caracteres o tres cuartos de una palabra." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;bottom:-320px;right:-200px;background:radial-gradient(circle,rgba(242,99,43,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 1 · Teoría básica</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">¿Qué es un token?</h2>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:54px;position:relative;z-index:1;">
+    <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:48px;line-height:1.25;margin:0;">La IA no lee palabras. Lee <span style="background:linear-gradient(115deg,#F2632B,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">tokens</span>.</p>
+    <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+      <span style="font-size:30px;color:#8C96AC;margin-right:8px;">"programando con IA"</span>
+      <span style="font-size:42px;color:#5C6880;">→</span>
+      <span style="display:inline-block;padding:16px 24px;border-radius:13px;font-family:'IBM Plex Mono',monospace;font-size:30px;background:rgba(242,99,43,0.12);border:1px solid rgba(242,99,43,0.36);color:#F6B695;">progra</span>
+      <span style="display:inline-block;padding:16px 24px;border-radius:13px;font-family:'IBM Plex Mono',monospace;font-size:30px;background:rgba(42,123,228,0.12);border:1px solid rgba(42,123,228,0.36);color:#9CC4F2;">mando</span>
+      <span style="display:inline-block;padding:16px 24px;border-radius:13px;font-family:'IBM Plex Mono',monospace;font-size:30px;background:rgba(242,99,43,0.12);border:1px solid rgba(242,99,43,0.36);color:#F6B695;">·con</span>
+      <span style="display:inline-block;padding:16px 24px;border-radius:13px;font-family:'IBM Plex Mono',monospace;font-size:30px;background:rgba(42,123,228,0.12);border:1px solid rgba(42,123,228,0.36);color:#9CC4F2;">·IA</span>
+    </div>
+    <p style="font-size:31px;color:#8C96AC;margin:0;line-height:1.45;">Regla práctica: <span style="color:#E4E9F2;font-weight:600;">1 token ≈ 4 caracteres ≈ ¾ de una palabra.</span></p>
+  </div>
+</section>
+
+<!-- ════════ 10 · TOKENS ENTRADA / SALIDA ════════ -->
+<section data-label="Tokens: entrada y salida" data-screen-label="Tokens entrada salida" data-speaker-notes="Entrada: lo que le mandás (tu prompt más el contexto). Salida: lo que te responde. Casi todo se cobra por tokens, así que más tokens significa más costo." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;top:-300px;left:-220px;background:radial-gradient(circle,rgba(42,123,228,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 1 · Teoría básica</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">Tokens: entrada y salida</h2>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:56px;position:relative;z-index:1;">
+    <div style="display:flex;align-items:stretch;gap:26px;">
+      <div style="flex:1;padding:40px 38px;border-radius:22px;background:rgba(242,99,43,0.07);border:1px solid rgba(242,99,43,0.3);">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.16em;text-transform:uppercase;color:#F2843B;margin-bottom:16px;">Entrada · input</div>
+        <div style="font-size:31px;font-weight:500;line-height:1.45;color:#E4E9F2;">Lo que le mandás: tu pregunta + todo el contexto.</div>
+      </div>
+      <div style="display:flex;align-items:center;font-size:46px;color:#5C6880;">→</div>
+      <div style="display:flex;align-items:center;justify-content:center;padding:0 44px;border-radius:22px;background:linear-gradient(120deg,rgba(242,99,43,0.16),rgba(42,123,228,0.16));border:1px solid rgba(255,255,255,0.16);font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:600;">Modelo</div>
+      <div style="display:flex;align-items:center;font-size:46px;color:#5C6880;">→</div>
+      <div style="flex:1;padding:40px 38px;border-radius:22px;background:rgba(42,123,228,0.08);border:1px solid rgba(42,123,228,0.32);">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.16em;text-transform:uppercase;color:#5FA0EE;margin-bottom:16px;">Salida · output</div>
+        <div style="font-size:31px;font-weight:500;line-height:1.45;color:#E4E9F2;">Lo que te responde: el texto que genera.</div>
+      </div>
+    </div>
+    <p style="font-size:31px;color:#8C96AC;margin:0;line-height:1.45;">Casi todo se cobra por tokens. <span style="color:#E4E9F2;font-weight:600;">Más tokens = más costo.</span></p>
+  </div>
+</section>
+
+<!-- ════════ 11 · CONTEXTO ════════ -->
+<section data-label="¿Qué es el contexto?" data-screen-label="Qué es el contexto" data-speaker-notes="El contexto es todo lo que la IA tiene presente en este momento: la conversación y los archivos cargados. Es limitado; cuando se llena, empieza a olvidar lo más viejo." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;bottom:-320px;right:-220px;background:radial-gradient(circle,rgba(242,99,43,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 1 · Teoría básica</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">¿Qué es el contexto?</h2>
+  <div style="flex:1;display:flex;align-items:center;gap:80px;position:relative;z-index:1;">
+    <div style="flex:1.1;">
+      <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:46px;line-height:1.25;margin:0;">Todo lo que la IA <span style="background:linear-gradient(115deg,#F2632B,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">tiene en mente</span> ahora mismo.</p>
+      <p style="font-size:31px;color:#8C96AC;margin:34px 0 0;line-height:1.45;">Es limitado. Cuando se llena, empieza a <span style="color:#E4E9F2;font-weight:600;">olvidar lo más viejo.</span></p>
+    </div>
+    <div style="flex:0.9;display:flex;flex-direction:column;gap:14px;padding:38px;border-radius:22px;background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.1);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.14em;text-transform:uppercase;color:#5C6880;margin-bottom:8px;">Ventana de contexto</div>
+      <div style="height:34px;border-radius:9px;background:linear-gradient(90deg,#F2632B,#D8447A);width:100%;"></div>
+      <div style="height:34px;border-radius:9px;background:linear-gradient(90deg,#D8447A,#2A7BE4);width:100%;"></div>
+      <div style="height:34px;border-radius:9px;background:rgba(42,123,228,0.6);width:78%;"></div>
+      <div style="height:34px;border-radius:9px;background:rgba(255,255,255,0.07);border:1px dashed rgba(255,255,255,0.18);width:100%;"></div>
+      <div style="font-size:24px;color:#67728A;margin-top:6px;">▒ lleno → lo más viejo se descarta</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 12 · DIFERENCIAS ENTRE MODELOS ════════ -->
+<section data-label="¿En qué se diferencian los modelos?" data-screen-label="Diferencias modelos" data-speaker-notes="No todos los modelos son iguales. Se diferencian sobre todo en velocidad, costo, capacidad de razonamiento y tamaño de la ventana de contexto." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;top:-300px;right:-220px;background:radial-gradient(circle,rgba(42,123,228,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 1 · Teoría básica</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">¿En qué se diferencian los modelos?</h2>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;z-index:1;margin-top:48px;">
+    <div style="display:flex;flex-direction:column;padding:42px 34px;border-radius:22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:36px;margin-bottom:16px;">Velocidad</div><div style="font-size:25px;color:#8C96AC;line-height:1.45;margin-top:auto;">Cuánto tarda en responder.</div></div>
+    <div style="display:flex;flex-direction:column;padding:42px 34px;border-radius:22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:36px;margin-bottom:16px;">Costo</div><div style="font-size:25px;color:#8C96AC;line-height:1.45;margin-top:auto;">Precio por token de entrada y salida.</div></div>
+    <div style="display:flex;flex-direction:column;padding:42px 34px;border-radius:22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:36px;margin-bottom:16px;">Razonamiento</div><div style="font-size:25px;color:#8C96AC;line-height:1.45;margin-top:auto;">Qué tan bien resuelve cosas complejas.</div></div>
+    <div style="display:flex;flex-direction:column;padding:42px 34px;border-radius:22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:36px;margin-bottom:16px;">Contexto</div><div style="font-size:25px;color:#8C96AC;line-height:1.45;margin-top:auto;">Cuánta info maneja a la vez.</div></div>
+  </div>
+</section>
+
+<!-- ════════ 13 · CUÁL ES EL MEJOR ════════ -->
+<section data-label="¿Cuál es el mejor?" data-screen-label="Cuál es el mejor" data-speaker-notes="No hay un ganador único. El mejor modelo depende de la tarea, del presupuesto y de la velocidad que necesites. Hay que probar." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:900px;height:900px;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(216,68,122,0.1),transparent 60%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 1 · Teoría básica</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">¿Cuál es el mejor?</h2>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:48px;position:relative;z-index:1;">
+    <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:150px;line-height:1;margin:0;background:linear-gradient(115deg,#F2632B,#D8447A 50%,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">Depende.</p>
+    <p style="font-size:34px;color:#A7B0C4;margin:0;max-width:1180px;line-height:1.45;">No hay un único ganador. El mejor cambia según la <span style="color:#E4E9F2;font-weight:600;">tarea</span>, el <span style="color:#E4E9F2;font-weight:600;">presupuesto</span> y la <span style="color:#E4E9F2;font-weight:600;">velocidad</span> que necesites.</p>
+  </div>
+</section>
+
+<!-- ════════ 14 · MEJOR PARA PROGRAMAR ════════ -->
+<section data-label="¿Cuál es el mejor para programar?" data-screen-label="Mejor para programar" data-speaker-notes="Para código hoy destacan Claude, los modelos GPT (Codex) y Gemini. Aclaración importante: el ranking cambia cada pocos meses, así que conviene probar." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;bottom:-320px;left:-220px;background:radial-gradient(circle,rgba(242,99,43,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 1 · Teoría básica</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">¿Cuál es el mejor para programar?</h2>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:46px;position:relative;z-index:1;">
+    <div style="font-size:30px;color:#8C96AC;">Hoy destacan para código:</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px;">
+      <div style="padding:44px 38px;border-radius:22px;background:rgba(242,99,43,0.08);border:1px solid rgba(242,99,43,0.32);"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:40px;margin-bottom:12px;">Claude</div><div style="font-size:25px;color:#9AA6BD;line-height:1.4;">Muy fuerte para escribir y editar código real.</div></div>
+      <div style="padding:44px 38px;border-radius:22px;background:rgba(216,68,122,0.08);border:1px solid rgba(216,68,122,0.3);"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:40px;margin-bottom:12px;">GPT</div><div style="font-size:25px;color:#9AA6BD;line-height:1.4;">Versátil y muy popular, con Codex para código.</div></div>
+      <div style="padding:44px 38px;border-radius:22px;background:rgba(42,123,228,0.08);border:1px solid rgba(42,123,228,0.32);"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:40px;margin-bottom:12px;">Gemini</div><div style="font-size:25px;color:#9AA6BD;line-height:1.4;">Gran ventana de contexto y buena integración.</div></div>
+    </div>
+    <p style="font-size:29px;color:#67728A;margin:0;">El ranking cambia cada pocos meses. <span style="color:#E4E9F2;font-weight:600;">Probá y elegí el tuyo.</span></p>
+  </div>
+</section>
+
+<!-- ════════ 15 · DÓNDE LE HABLO ════════ -->
+<section data-label="¿Dónde le hablo a la IA?" data-screen-label="App terminal editor" data-speaker-notes="Tres formas de hablarle a la IA: la app o chat (lo más simple), la terminal (Claude Code, Codex CLI: trabaja sobre tus archivos) y el editor como VS Code (integrada al código con extensiones)." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;top:-300px;right:-220px;background:radial-gradient(circle,rgba(242,99,43,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 1 · Teoría básica</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">¿Dónde le hablo a la IA?</h2>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:26px;position:relative;z-index:1;margin-top:46px;">
+    <div style="display:flex;flex-direction:column;padding:44px 38px;border-radius:24px;background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.09);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.14em;text-transform:uppercase;color:#F2843B;margin-bottom:18px;">01 · App / Chat</div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:36px;margin-bottom:18px;">La aplicación</div>
+      <div style="font-size:26px;color:#9AA6BD;line-height:1.45;">Web o de escritorio. Le escribís y te responde. Lo más simple para empezar.</div>
+      <div style="font-size:24px;color:#67728A;margin-top:auto;padding-top:26px;">Ideal para: aprender y probar ideas.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;padding:44px 38px;border-radius:24px;background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.09);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.14em;text-transform:uppercase;color:#D8447A;margin-bottom:18px;">02 · Terminal</div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:36px;margin-bottom:18px;">Claude Code · Codex</div>
+      <div style="font-size:26px;color:#9AA6BD;line-height:1.45;">La IA trabaja directo sobre los archivos de tu proyecto.</div>
+      <div style="font-size:24px;color:#67728A;margin-top:auto;padding-top:26px;">Ideal para: construir de verdad.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;padding:44px 38px;border-radius:24px;background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.09);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.14em;text-transform:uppercase;color:#5FA0EE;margin-bottom:18px;">03 · Editor</div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:36px;margin-bottom:18px;">VS Code</div>
+      <div style="font-size:26px;color:#9AA6BD;line-height:1.45;">La IA integrada dentro de tu editor, al lado del código.</div>
+      <div style="font-size:24px;color:#67728A;margin-top:auto;padding-top:26px;">Ideal para: editar mientras programás.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ DIVIDER 02 ════════ -->
+<section data-label="Etapa 2 · Casos de uso" data-screen-label="Divider Etapa 2" data-speaker-notes="Pasamos de la teoría a la práctica. Vamos a ver tres casos reales, de lo más simple a un agente propio." style="display:flex;flex-direction:column;justify-content:center;padding:104px;background:linear-gradient(125deg,#2A7BE4 0%,#7B3FB0 52%,#F2632B 100%);color:#FFFFFF;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <img src="assets/aic_logo_transparente.png" style="position:absolute;width:760px;height:760px;top:50%;right:-180px;transform:translateY(-50%);opacity:0.12;pointer-events:none;">
+  <div style="position:relative;z-index:1;">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.82);margin-bottom:24px;">Etapa 02</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:130px;line-height:1;letter-spacing:-0.025em;margin:0;">Casos de uso</h2>
+    <p style="font-size:38px;line-height:1.4;color:rgba(255,255,255,0.9);margin:38px 0 0;max-width:920px;">De un portafolio simple a tu propio agente de IA.</p>
+  </div>
+</section>
+
+<!-- ════════ 16 · CASO 1 ════════ -->
+<section data-label="Caso 1 — Algo sencillo" data-screen-label="Caso 1" data-speaker-notes="Caso 1: algo simple, como un portafolio o web personal. De cero a publicado: lo describís, la IA lo genera, ajustás y publicás. Hacé la demo en vivo si podés." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;top:-300px;right:-220px;background:radial-gradient(circle,rgba(242,99,43,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 2 · Casos de uso</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">Caso 1 — Algo sencillo</h2>
+  <div style="flex:1;display:flex;align-items:center;gap:70px;position:relative;z-index:1;">
+    <div style="flex:1;">
+      <p style="font-size:34px;color:#A7B0C4;line-height:1.45;margin:0 0 40px;">Un <span style="color:#E4E9F2;font-weight:600;">portafolio o web personal</span>, de cero a publicado.</p>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="display:flex;align-items:center;gap:20px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:24px;color:#F2843B;">1</span><span style="font-size:29px;font-weight:500;">Describí lo que querés</span></div>
+        <div style="display:flex;align-items:center;gap:20px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:24px;color:#F2843B;">2</span><span style="font-size:29px;font-weight:500;">La IA lo genera</span></div>
+        <div style="display:flex;align-items:center;gap:20px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:24px;color:#F2843B;">3</span><span style="font-size:29px;font-weight:500;">Ajustás los detalles</span></div>
+        <div style="display:flex;align-items:center;gap:20px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:24px;color:#F2843B;">4</span><span style="font-size:29px;font-weight:500;">Publicás online</span></div>
+      </div>
+    </div>
+    <div style="flex:1.05;border-radius:18px;background:#0E1626;border:1px solid rgba(255,255,255,0.12);overflow:hidden;">
+      <div style="display:flex;align-items:center;gap:9px;padding:16px 22px;border-bottom:1px solid rgba(255,255,255,0.09);">
+        <span style="width:12px;height:12px;border-radius:50%;background:#F2632B;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#E0A33C;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#2A7BE4;"></span>
+        <span style="margin-left:14px;font-family:'IBM Plex Mono',monospace;font-size:24px;color:#67728A;">mi-portafolio.com</span>
+      </div>
+      <div style="padding:46px 44px;">
+        <div style="width:96px;height:96px;border-radius:50%;background:linear-gradient(120deg,#F2632B,#2A7BE4);margin-bottom:26px;"></div>
+        <div style="height:26px;width:60%;border-radius:7px;background:rgba(255,255,255,0.18);margin-bottom:16px;"></div>
+        <div style="height:16px;width:85%;border-radius:6px;background:rgba(255,255,255,0.08);margin-bottom:10px;"></div>
+        <div style="height:16px;width:72%;border-radius:6px;background:rgba(255,255,255,0.08);margin-bottom:30px;"></div>
+        <div style="display:flex;gap:14px;"><div style="flex:1;height:84px;border-radius:12px;background:rgba(242,99,43,0.14);"></div><div style="flex:1;height:84px;border-radius:12px;background:rgba(42,123,228,0.14);"></div><div style="flex:1;height:84px;border-radius:12px;background:rgba(255,255,255,0.06);"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 17 · CASO 2 (placeholder) ════════ -->
+<section data-label="Caso 2 — Luciano diVenuo" data-screen-label="Caso 2" data-speaker-notes="PLACEHOLDER: contame de qué trata el caso de Luciano diVenuo y reemplazo este texto. Por ahora dejé una slide lista para tu demo en vivo." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;bottom:-320px;left:-220px;background:radial-gradient(circle,rgba(42,123,228,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 2 · Casos de uso</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">Caso 2 — Luciano diVenuo</h2>
+  <div style="flex:1;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+    <div style="width:100%;height:78%;border-radius:26px;border:2px dashed rgba(255,255,255,0.22);background:rgba(255,255,255,0.02);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.18em;text-transform:uppercase;color:#F2843B;">Demo en vivo</div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:44px;color:#C7CEDC;">Espacio reservado para el caso</div>
+      <div style="font-size:27px;color:#67728A;max-width:760px;text-align:center;line-height:1.45;">Contame de qué trata y lo completo — o usá esta slide para mostrar la demo en pantalla.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 18 · CASO 2.1 (placeholder) ════════ -->
+<section data-label="Caso 2.1" data-screen-label="Caso 2.1" data-speaker-notes="PLACEHOLDER: continuación del caso 2. Completá con los detalles que quieras mostrar." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;top:-300px;right:-220px;background:radial-gradient(circle,rgba(242,99,43,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 2 · Casos de uso</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">Caso 2.1</h2>
+  <div style="flex:1;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+    <div style="width:100%;height:78%;border-radius:26px;border:2px dashed rgba(255,255,255,0.22);background:rgba(255,255,255,0.02);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.18em;text-transform:uppercase;color:#5FA0EE;">Continuación</div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:44px;color:#C7CEDC;">Espacio reservado</div>
+      <div style="font-size:27px;color:#67728A;max-width:760px;text-align:center;line-height:1.45;">Seguimos el caso anterior. Completá con lo que quieras destacar.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 19 · CASO 3 ════════ -->
+<section data-label="Caso 3 — Tu propio agente de IA" data-screen-label="Caso 3" data-speaker-notes="Caso 3: crear un agente propio. Ejemplo concreto: un agente que cada 4 horas escribe y publica un tweet en X. Un temporizador dispara, el agente genera el texto, y lo publica." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;bottom:-320px;right:-220px;background:radial-gradient(circle,rgba(42,123,228,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 2 · Casos de uso</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">Caso 3 — Tu propio agente de IA</h2>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:54px;position:relative;z-index:1;">
+    <p style="font-size:34px;color:#A7B0C4;line-height:1.45;margin:0;max-width:1200px;">Un agente que <span style="color:#E4E9F2;font-weight:600;">cada 4 horas</span> crea y publica un tweet en X — solo, sin que estés vos.</p>
+    <div style="display:flex;align-items:stretch;gap:22px;">
+      <div style="flex:1;padding:40px 34px;border-radius:22px;background:rgba(242,99,43,0.08);border:1px solid rgba(242,99,43,0.3);">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;color:#F2843B;margin-bottom:16px;">cada 4 h</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;">Se dispara solo</div>
+        <div style="font-size:24px;color:#9AA6BD;margin-top:12px;line-height:1.4;">Un temporizador lo activa.</div>
+      </div>
+      <div style="display:flex;align-items:center;font-size:46px;color:#5C6880;">→</div>
+      <div style="flex:1;padding:40px 34px;border-radius:22px;background:rgba(216,68,122,0.08);border:1px solid rgba(216,68,122,0.3);">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;color:#E472A0;margin-bottom:16px;">modelo</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;">Escribe el tweet</div>
+        <div style="font-size:24px;color:#9AA6BD;margin-top:12px;line-height:1.4;">Genera el texto del día.</div>
+      </div>
+      <div style="display:flex;align-items:center;font-size:46px;color:#5C6880;">→</div>
+      <div style="flex:1;padding:40px 34px;border-radius:22px;background:rgba(42,123,228,0.08);border:1px solid rgba(42,123,228,0.3);">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;color:#5FA0EE;margin-bottom:16px;">acción</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;">Publica en X</div>
+        <div style="font-size:24px;color:#9AA6BD;margin-top:12px;line-height:1.4;">Lo sube sin intervención.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ DIVIDER 03 ════════ -->
+<section data-label="Etapa 3 · ¿Cómo seguimos?" data-screen-label="Divider Etapa 3" data-speaker-notes="Cerramos con lo más importante: cómo seguir aprendiendo después del workshop. Una guía clara para llevarse a casa." style="display:flex;flex-direction:column;justify-content:center;padding:104px;background:linear-gradient(125deg,#F2632B 0%,#D8447A 46%,#2A7BE4 100%);color:#FFFFFF;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <img src="assets/aic_logo_transparente.png" style="position:absolute;width:760px;height:760px;top:50%;right:-180px;transform:translateY(-50%);opacity:0.12;pointer-events:none;">
+  <div style="position:relative;z-index:1;">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.82);margin-bottom:24px;">Etapa 03</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:130px;line-height:1;letter-spacing:-0.025em;margin:0;">¿Cómo seguimos?</h2>
+    <p style="font-size:38px;line-height:1.4;color:rgba(255,255,255,0.9);margin:38px 0 0;max-width:920px;">Tu guía para seguir construyendo después de hoy.</p>
+  </div>
+</section>
+
+<!-- ════════ 20 · HASTA DÓNDE ════════ -->
+<section data-label="¿Hasta dónde puedo llegar?" data-screen-label="Hasta dónde" data-speaker-notes="Lo que aprendieron hoy se aplica más lejos de lo que creen: prototipos reales, herramientas para su propio trabajo y automatizaciones que ahorran horas." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;top:-300px;right:-220px;background:radial-gradient(circle,rgba(242,99,43,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 3 · ¿Cómo seguimos?</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">¿Hasta dónde puedo llegar con esto?</h2>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:50px;position:relative;z-index:1;">
+    <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:52px;line-height:1.2;margin:0;">Más lejos de lo que <span style="background:linear-gradient(115deg,#F2632B,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">pensás</span>.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px;">
+      <div style="padding:40px 34px;border-radius:22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;margin-bottom:14px;">Prototipos reales</div><div style="font-size:25px;color:#8C96AC;line-height:1.45;">Llevá tus ideas a algo que funcione.</div></div>
+      <div style="padding:40px 34px;border-radius:22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;margin-bottom:14px;">Herramientas propias</div><div style="font-size:25px;color:#8C96AC;line-height:1.45;">Resolvé problemas de tu día a día.</div></div>
+      <div style="padding:40px 34px;border-radius:22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:34px;margin-bottom:14px;">Automatizaciones</div><div style="font-size:25px;color:#8C96AC;line-height:1.45;">Ahorrá horas de tareas repetitivas.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 21 · HERRAMIENTAS ════════ -->
+<section data-label="Herramientas para seguir avanzando" data-screen-label="Herramientas" data-speaker-notes="Cuatro cosas que vale la pena aprender para avanzar: Git y GitHub para versionar y compartir código, lógica de programación para entender lo que la IA escribe, y un espacio de comunidad (CoWork) para construir acompañado." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;bottom:-320px;left:-220px;background:radial-gradient(circle,rgba(42,123,228,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 3 · ¿Cómo seguimos?</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">Herramientas para seguir avanzando</h2>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:24px;position:relative;z-index:1;margin-top:44px;">
+    <div style="display:flex;align-items:center;gap:30px;padding:38px 40px;border-radius:22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:42px;background:linear-gradient(120deg,#F2632B,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;flex-shrink:0;">Git</span><span style="font-size:27px;color:#9AA6BD;line-height:1.4;">Control de versiones: guardá la historia de tu código y volvé atrás cuando quieras.</span></div>
+    <div style="display:flex;align-items:center;gap:30px;padding:38px 40px;border-radius:22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:42px;background:linear-gradient(120deg,#F2632B,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;flex-shrink:0;">GitHub</span><span style="font-size:27px;color:#9AA6BD;line-height:1.4;">Tu código en la nube, para compartir, colaborar y publicar.</span></div>
+    <div style="display:flex;align-items:center;gap:30px;padding:38px 40px;border-radius:22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);"><span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:32px;color:#F4F7FC;flex-shrink:0;max-width:200px;line-height:1.1;">Lógica de programación</span><span style="font-size:27px;color:#9AA6BD;line-height:1.4;">Pensar en pasos: te ayuda a entender lo que la IA escribe.</span></div>
+    <div style="display:flex;align-items:center;gap:30px;padding:38px 40px;border-radius:22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);"><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:42px;background:linear-gradient(120deg,#F2632B,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;flex-shrink:0;">CoWork</span><span style="font-size:27px;color:#9AA6BD;line-height:1.4;">Construir en comunidad: aprendés más rápido acompañado.</span></div>
+  </div>
+</section>
+
+<!-- ════════ 22 · TIPS ════════ -->
+<section data-label="Tips para sacarle más jugo" data-screen-label="Tips" data-speaker-notes="Dos grupos de tips. Ahorro de tokens: sé claro y breve, empezá chats nuevos para tareas nuevas, no pegues archivos enteros si no hace falta. Prompts: dale contexto y un objetivo, pedí pasos, mostrá ejemplos." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;top:-300px;right:-220px;background:radial-gradient(circle,rgba(242,99,43,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 3 · ¿Cómo seguimos?</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">Tips para sacarle más jugo</h2>
+  <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:28px;position:relative;z-index:1;margin-top:44px;">
+    <div style="padding:46px 44px;border-radius:24px;background:rgba(242,99,43,0.07);border:1px solid rgba(242,99,43,0.28);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.16em;text-transform:uppercase;color:#F2843B;margin-bottom:26px;">Ahorro de tokens</div>
+      <div style="display:flex;flex-direction:column;gap:22px;font-size:28px;color:#D4DAE6;line-height:1.4;">
+        <div style="display:flex;gap:16px;"><span style="color:#F2843B;">›</span><span>Sé claro y breve en lo que pedís.</span></div>
+        <div style="display:flex;gap:16px;"><span style="color:#F2843B;">›</span><span>Empezá un chat nuevo para cada tarea nueva.</span></div>
+        <div style="display:flex;gap:16px;"><span style="color:#F2843B;">›</span><span>No pegues archivos enteros si no hace falta.</span></div>
+      </div>
+    </div>
+    <div style="padding:46px 44px;border-radius:24px;background:rgba(42,123,228,0.07);border:1px solid rgba(42,123,228,0.3);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.16em;text-transform:uppercase;color:#5FA0EE;margin-bottom:26px;">Prompts</div>
+      <div style="display:flex;flex-direction:column;gap:22px;font-size:28px;color:#D4DAE6;line-height:1.4;">
+        <div style="display:flex;gap:16px;"><span style="color:#5FA0EE;">›</span><span>Dale contexto y un objetivo claro.</span></div>
+        <div style="display:flex;gap:16px;"><span style="color:#5FA0EE;">›</span><span>Pedí pasos, no todo de una.</span></div>
+        <div style="display:flex;gap:16px;"><span style="color:#5FA0EE;">›</span><span>Mostrá ejemplos de lo que querés.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 23 · CIERRE ════════ -->
+<section data-label="Esto recién empieza" data-screen-label="Cierre" data-speaker-notes="Cierre y llamado a la acción. Invitá a sumarse a la comunidad de The AI Collective Buenos Aires, a venir a los próximos eventos y a compartir lo que construyan. Agradecé." style="display:flex;flex-direction:column;justify-content:space-between;padding:92px 104px;background:#070A12;color:#F4F7FC;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:1100px;height:1100px;border-radius:50%;top:50%;left:62%;transform:translate(-50%,-50%);background:radial-gradient(circle at 38% 38%,rgba(242,99,43,0.24),rgba(216,68,122,0.12) 40%,rgba(42,123,228,0.18) 66%,transparent 76%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:16px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:50px;height:50px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.26em;text-transform:uppercase;color:#8A93A8;">The AI Collective · Buenos Aires</span>
+  </div>
+  <div style="flex:1;display:flex;align-items:center;gap:90px;position:relative;z-index:1;">
+    <div style="flex:1.1;">
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:96px;line-height:1.02;letter-spacing:-0.02em;margin:0;">Esto <span style="background:linear-gradient(115deg,#F2632B,#D8447A 50%,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">recién empieza</span>.</h2>
+      <p style="font-size:36px;color:#A7B0C4;margin:32px 0 0;max-width:620px;line-height:1.4;">Sumate a la comunidad y seguí construyendo con IA.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:42px;">
+        <div style="padding:20px 30px;border-radius:14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);font-size:26px;font-weight:500;">Próximos eventos</div>
+        <div style="padding:20px 30px;border-radius:14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);font-size:26px;font-weight:500;">Compartí lo que construyas</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:24px;">
+      <div style="background:#FFFFFF;border-radius:26px;padding:34px;box-shadow:0 30px 80px rgba(0,0,0,0.45);display:flex;">
+        <img src="assets/wsp_qr.png" alt="QR grupo de WhatsApp" style="width:320px;height:320px;display:block;">
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <span style="width:13px;height:13px;border-radius:50%;background:#25D366;flex-shrink:0;"></span>
+        <span style="font-size:26px;font-weight:500;color:#C7CEDC;">Sumate al grupo de difusión</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</x-import>
+</x-dc>
+</body>
+</html>
