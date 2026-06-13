@@ -9,15 +9,16 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
   html, body { margin: 0; padding: 0; background: #070A12; }
   * { box-sizing: border-box; }
 </style>
+<script src="image-slot.js"></script>
 </helmet>
 
-<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
 
 <!-- ════════ 1 · PORTADA ════════ -->
 <section data-label="Portada" data-screen-label="Portada" data-speaker-notes="Bienvenida. Presentate y presentá a The AI Collective Buenos Aires. La idea del workshop: de una idea a un primer prototipo, sin necesidad de experiencia técnica." style="display:flex;flex-direction:column;justify-content:space-between;padding:92px 104px;background:#070A12;color:#F4F7FC;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
@@ -356,27 +357,103 @@
     <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 1 · Teoría básica</span>
   </div>
   <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 0;position:relative;z-index:1;">¿Dónde le hablo a la IA?</h2>
-  <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:26px;position:relative;z-index:1;margin-top:46px;">
-    <div style="display:flex;flex-direction:column;padding:44px 38px;border-radius:24px;background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.09);">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.14em;text-transform:uppercase;color:#F2843B;margin-bottom:18px;">01 · App / Chat</div>
-      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:36px;margin-bottom:18px;">La aplicación</div>
-      <div style="font-size:26px;color:#9AA6BD;line-height:1.45;">Web o de escritorio. Le escribís y te responde. Lo más simple para empezar.</div>
-      <div style="font-size:24px;color:#67728A;margin-top:auto;padding-top:26px;">Ideal para: aprender y probar ideas.</div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;position:relative;z-index:1;margin-top:44px;">
+    <div style="display:flex;flex-direction:column;padding:36px 30px;border-radius:22px;background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.09);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.12em;text-transform:uppercase;color:#F2843B;margin-bottom:16px;">01 · Web</div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:33px;margin-bottom:16px;">Desde la web</div>
+      <div style="font-size:24px;color:#9AA6BD;line-height:1.45;">Chateás con la IA desde el navegador, sin instalar nada.</div>
+      <div style="font-size:24px;color:#67728A;margin-top:auto;padding-top:24px;">Ideal para: tu primer contacto.</div>
     </div>
-    <div style="display:flex;flex-direction:column;padding:44px 38px;border-radius:24px;background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.09);">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.14em;text-transform:uppercase;color:#D8447A;margin-bottom:18px;">02 · Terminal</div>
-      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:36px;margin-bottom:18px;">Claude Code · Codex</div>
-      <div style="font-size:26px;color:#9AA6BD;line-height:1.45;">La IA trabaja directo sobre los archivos de tu proyecto.</div>
-      <div style="font-size:24px;color:#67728A;margin-top:auto;padding-top:26px;">Ideal para: construir de verdad.</div>
+    <div style="display:flex;flex-direction:column;padding:36px 30px;border-radius:22px;background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.09);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.12em;text-transform:uppercase;color:#E472A0;margin-bottom:16px;">02 · App</div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:33px;margin-bottom:16px;">La aplicación</div>
+      <div style="font-size:24px;color:#9AA6BD;line-height:1.45;">Su app de escritorio o móvil, siempre a mano.</div>
+      <div style="font-size:24px;color:#67728A;margin-top:auto;padding-top:24px;">Ideal para: usarla a diario.</div>
     </div>
-    <div style="display:flex;flex-direction:column;padding:44px 38px;border-radius:24px;background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.09);">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.14em;text-transform:uppercase;color:#5FA0EE;margin-bottom:18px;">03 · Editor</div>
-      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:36px;margin-bottom:18px;">VS Code</div>
-      <div style="font-size:26px;color:#9AA6BD;line-height:1.45;">La IA integrada dentro de tu editor, al lado del código.</div>
-      <div style="font-size:24px;color:#67728A;margin-top:auto;padding-top:26px;">Ideal para: editar mientras programás.</div>
+    <div style="display:flex;flex-direction:column;padding:36px 30px;border-radius:22px;background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.09);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.12em;text-transform:uppercase;color:#A874E0;margin-bottom:16px;">03 · Editor</div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:33px;margin-bottom:16px;">VS Code</div>
+      <div style="font-size:24px;color:#9AA6BD;line-height:1.45;">La IA integrada dentro de tu editor, al lado del código.</div>
+      <div style="font-size:24px;color:#67728A;margin-top:auto;padding-top:24px;">Ideal para: editar mientras programás.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;padding:36px 30px;border-radius:22px;background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.09);">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.12em;text-transform:uppercase;color:#5FA0EE;margin-bottom:16px;">04 · Terminal</div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:33px;margin-bottom:16px;">Claude Code · Codex</div>
+      <div style="font-size:24px;color:#9AA6BD;line-height:1.45;">La IA trabaja directo sobre los archivos de tu proyecto.</div>
+      <div style="font-size:24px;color:#67728A;margin-top:auto;padding-top:24px;">Ideal para: construir de verdad.</div>
     </div>
   </div>
 </section>
+
+<!-- ════════ 15.1 · DETALLE · DESDE LA WEB ════════ -->
+<section data-label="01 · Desde la web" data-screen-label="Detalle web" data-speaker-notes="Mostrá cómo se usa la IA desde el navegador. Arrastrá una captura de pantalla al recuadro." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;top:-300px;right:-220px;background:radial-gradient(circle,rgba(242,99,43,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 1 · ¿Dónde le hablo?</span>
+  </div>
+  <div style="display:flex;align-items:baseline;gap:24px;margin:30px 0 6px;position:relative;z-index:1;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;color:#F2843B;">01</span>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:64px;line-height:1.04;letter-spacing:-0.02em;margin:0;">Desde la web</h2>
+  </div>
+  <p style="font-size:30px;color:#9AA6BD;margin:0;position:relative;z-index:1;">Chateás con la IA desde el navegador, sin instalar nada.</p>
+  <div style="flex:1;margin-top:34px;position:relative;z-index:1;">
+    <image-slot id="slot-web" shape="rounded" radius="20" fit="contain" placeholder="Arrastrá acá una captura de la IA en el navegador" style="width:100%;height:100%;display:block;"></image-slot>
+  </div>
+</section>
+
+<!-- ════════ 15.2 · DETALLE · LA APLICACIÓN ════════ -->
+<section data-label="02 · La aplicación" data-screen-label="Detalle app" data-speaker-notes="Mostrá la app de escritorio o móvil. Arrastrá una captura al recuadro." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;bottom:-320px;left:-220px;background:radial-gradient(circle,rgba(228,114,160,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 1 · ¿Dónde le hablo?</span>
+  </div>
+  <div style="display:flex;align-items:baseline;gap:24px;margin:30px 0 6px;position:relative;z-index:1;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;color:#E472A0;">02</span>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:64px;line-height:1.04;letter-spacing:-0.02em;margin:0;">La aplicación</h2>
+  </div>
+  <p style="font-size:30px;color:#9AA6BD;margin:0;position:relative;z-index:1;">Su app de escritorio o móvil, siempre a mano.</p>
+  <div style="flex:1;margin-top:34px;position:relative;z-index:1;display:flex;gap:24px;">
+    <image-slot id="slot-app-1" shape="rounded" radius="20" fit="contain" placeholder="Arrastrá acá una captura de la app (1)" style="flex:1;height:100%;display:block;"></image-slot>
+    <image-slot id="slot-app-2" shape="rounded" radius="20" fit="contain" placeholder="Arrastrá acá una captura de la app (2)" style="flex:1;height:100%;display:block;"></image-slot>
+  </div>
+</section>
+
+<!-- ════════ 15.3 · DETALLE · EDITOR (VS CODE) ════════ -->
+<section data-label="03 · Editor (VS Code)" data-screen-label="Detalle editor" data-speaker-notes="Mostrá la IA integrada en VS Code, al lado del código. Arrastrá una captura al recuadro." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;bottom:-320px;right:-220px;background:radial-gradient(circle,rgba(42,123,228,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 1 · ¿Dónde le hablo?</span>
+  </div>
+  <div style="display:flex;align-items:baseline;gap:24px;margin:30px 0 6px;position:relative;z-index:1;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;color:#5FA0EE;">03</span>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:64px;line-height:1.04;letter-spacing:-0.02em;margin:0;">Editor · VS Code</h2>
+  </div>
+  <p style="font-size:30px;color:#9AA6BD;margin:0;position:relative;z-index:1;">La IA integrada dentro de tu editor, al lado del código.</p>
+  <div style="flex:1;margin-top:34px;position:relative;z-index:1;">
+    <image-slot id="slot-editor" shape="rounded" radius="20" fit="contain" placeholder="Arrastrá acá una captura de VS Code" style="width:100%;height:100%;display:block;"></image-slot>
+  </div>
+</section>
+
+<!-- ════════ 15.4 · DETALLE · TERMINAL ════════ -->
+<section data-label="04 · Terminal" data-screen-label="Detalle terminal" data-speaker-notes="Mostrá Claude Code o Codex trabajando en la terminal sobre los archivos. Arrastrá una captura al recuadro." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#0A0E1A;color:#EEF2F9;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:720px;height:720px;border-radius:50%;top:-300px;right:-220px;background:radial-gradient(circle,rgba(168,116,224,0.12),transparent 62%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#5C6880;">Etapa 1 · ¿Dónde le hablo?</span>
+  </div>
+  <div style="display:flex;align-items:baseline;gap:24px;margin:30px 0 6px;position:relative;z-index:1;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;color:#A874E0;">04</span>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:64px;line-height:1.04;letter-spacing:-0.02em;margin:0;">Terminal · Claude Code · Codex</h2>
+  </div>
+  <p style="font-size:30px;color:#9AA6BD;margin:0;position:relative;z-index:1;">La IA trabaja directo sobre los archivos de tu proyecto.</p>
+  <div style="flex:1;margin-top:34px;position:relative;z-index:1;">
+    <image-slot id="slot-terminal" shape="rounded" radius="20" fit="contain" placeholder="Arrastrá acá una captura de la terminal" style="width:100%;height:100%;display:block;"></image-slot>
+  </div>
+</section>
+
 
 <!-- ════════ DIVIDER 02 ════════ -->
 <section data-label="Etapa 2 · Casos de uso" data-screen-label="Divider Etapa 2" data-speaker-notes="Pasamos de la teoría a la práctica. Vamos a ver tres casos reales, de lo más simple a un agente propio." style="display:flex;flex-direction:column;justify-content:center;padding:104px;background:linear-gradient(125deg,#2A7BE4 0%,#7B3FB0 52%,#F2632B 100%);color:#FFFFFF;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
