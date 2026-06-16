@@ -26,8 +26,10 @@
 15. ¿Dónde le hablo a la IA? (app / terminal / editor)
 — DIVIDER 02 · Casos de uso —
 16. Caso 1 — Algo sencillo
-17. Caso 2 — Luciano diVenuo (placeholder)
-18. Caso 2.1 (placeholder)
+17. Caso 2 — diVenuo (intro: SaaS en producción, caso de estudio)
+17.1 diVenuo — Una base de código, muchos locales (multi-tenant)
+17.2 diVenuo — Flujos a medida: diVenuo Tattoos (mapa corporal + código de sesión)
+18. Caso 2.1 — ¿Cómo me ayudó la IA acá? (vistazo de código)
 19. Caso 3 — Tu propio agente de IA
 — DIVIDER 03 · ¿Cómo seguimos? —
 20. ¿Hasta dónde puedo llegar con esto?
