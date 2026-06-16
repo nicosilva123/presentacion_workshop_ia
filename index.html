@@ -14,6 +14,25 @@
 <style>
   html, body { margin: 0; padding: 0; background: #FFFFFF; }
   * { box-sizing: border-box; }
+
+  /* ── Animaciones flashy (portada / cierre) ── */
+  @keyframes aic-aurora { 0%,100% { transform: scale(1); opacity:.9; } 50% { transform: scale(1.14); opacity:1; } }
+  @keyframes aic-aurora2 { 0%,100% { transform: scale(1.1); opacity:.75; } 50% { transform: scale(0.92); opacity:1; } }
+  @keyframes aic-shimmer { to { background-position: 200% center; } }
+  @keyframes aic-blink { 0%,48% { opacity:1; } 49%,100% { opacity:0; } }
+  @keyframes aic-float { 0%,100% { transform: translateY(0) rotate(var(--r,0deg)); } 50% { transform: translateY(-18px) rotate(var(--r,0deg)); } }
+  @keyframes aic-spin { to { transform: rotate(360deg); } }
+  @keyframes aic-rise { from { opacity:0; transform: translateY(26px); } to { opacity:1; transform: translateY(0); } }
+  @keyframes aic-sheen { 0% { transform: translateX(-120%) skewX(-18deg); } 60%,100% { transform: translateX(320%) skewX(-18deg); } }
+
+  .aic-aurora { animation: aic-aurora 9s ease-in-out infinite; transform-origin:center; }
+  .aic-aurora2 { animation: aic-aurora2 11s ease-in-out infinite; transform-origin:center; }
+  .aic-shimmer { background-size:200% auto; animation: aic-shimmer 7s linear infinite; }
+  .aic-cursor { animation: aic-blink 1.05s step-end infinite; }
+  .aic-float { animation: aic-float 7s ease-in-out infinite; }
+  .aic-spin { animation: aic-spin 26s linear infinite; transform-origin:center; }
+  .aic-rise { animation: aic-rise .9s cubic-bezier(.2,.7,.2,1) both; }
+  .aic-sheen { animation: aic-sheen 5.5s ease-in-out infinite; }
 </style>
 <script src="image-slot.js"></script>
 </helmet>
@@ -21,23 +40,37 @@
 <x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
 
 <!-- ════════ 1 · PORTADA ════════ -->
-<section data-label="Portada" data-screen-label="Portada" data-speaker-notes="Bienvenida. Presentate y presentá a The AI Collective Buenos Aires. La idea del workshop: de una idea a un primer prototipo, sin necesidad de experiencia técnica." style="display:flex;flex-direction:column;justify-content:space-between;padding:92px 104px;background:#FFFFFF;color:#0E1424;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
-  <div style="position:absolute;width:1180px;height:1180px;border-radius:50%;top:50%;left:62%;transform:translate(-50%,-50%);background:radial-gradient(circle at 38% 38%,rgba(242,99,43,0.26),rgba(216,68,122,0.12) 40%,rgba(42,123,228,0.18) 66%,transparent 76%);pointer-events:none;"></div>
-  <div style="position:absolute;width:560px;height:560px;border-radius:50%;bottom:-280px;left:-200px;background:radial-gradient(circle,rgba(42,123,228,0.16),transparent 62%);pointer-events:none;"></div>
+<section data-label="Portada" data-screen-label="Portada" data-speaker-notes="Bienvenida. Presentate y presentá a The AI Collective Buenos Aires. La idea del workshop: de una idea a un primer prototipo, sin necesidad de experiencia técnica." style="display:flex;flex-direction:column;justify-content:space-between;padding:92px 104px;background:radial-gradient(140% 120% at 78% 18%,#13213D 0%,#0A1124 42%,#05080F 100%);color:#EAF0FF;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <!-- grid + glows -->
+  <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.05) 1.4px,transparent 1.4px);background-size:38px 38px;mask-image:radial-gradient(120% 90% at 60% 40%,#000 35%,transparent 78%);-webkit-mask-image:radial-gradient(120% 90% at 60% 40%,#000 35%,transparent 78%);pointer-events:none;"></div>
+  <div class="aic-aurora" style="position:absolute;width:1120px;height:1120px;border-radius:50%;top:-260px;right:-220px;background:radial-gradient(circle at 40% 40%,rgba(242,99,43,0.42),rgba(216,68,122,0.20) 42%,transparent 70%);filter:blur(18px);pointer-events:none;"></div>
+  <div class="aic-aurora2" style="position:absolute;width:880px;height:880px;border-radius:50%;bottom:-360px;left:-260px;background:radial-gradient(circle,rgba(42,123,228,0.4),transparent 66%);filter:blur(14px);pointer-events:none;"></div>
+  <div class="aic-spin" style="position:absolute;width:1500px;height:1500px;top:50%;left:62%;margin:-750px 0 0 -750px;border-radius:50%;background:conic-gradient(from 0deg,transparent 0deg,rgba(242,99,43,0.12) 60deg,transparent 140deg,rgba(42,123,228,0.12) 240deg,transparent 320deg);mask:radial-gradient(circle,transparent 60%,#000 61%,#000 63%,transparent 64%);-webkit-mask:radial-gradient(circle,transparent 60%,#000 61%,#000 63%,transparent 64%);pointer-events:none;"></div>
 
-  <div style="display:flex;align-items:center;gap:16px;position:relative;z-index:1;">
-    <img src="assets/aic_logo_transparente.png" alt="The AI Collective" style="width:50px;height:50px;display:block;">
-    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.26em;text-transform:uppercase;color:#6A7384;">The AI Collective · Buenos Aires</span>
+  <!-- floating code tokens -->
+  <div style="position:absolute;inset:0;pointer-events:none;font-family:'IBM Plex Mono',monospace;">
+    <span class="aic-float" style="--r:-8deg;position:absolute;top:20%;left:13%;padding:12px 20px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);color:#FFB48A;font-size:26px;animation-delay:0s;">prompt</span>
+    <span class="aic-float" style="--r:6deg;position:absolute;top:64%;left:9%;padding:12px 20px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);color:#9BC2FF;font-size:26px;animation-delay:1.4s;">&lt;/&gt;</span>
+    <span class="aic-float" style="--r:5deg;position:absolute;top:16%;right:9%;padding:12px 20px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);color:#F2A3C4;font-size:26px;animation-delay:.7s;">agente</span>
+    <span class="aic-float" style="--r:-6deg;position:absolute;bottom:20%;right:14%;padding:12px 20px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);color:#9BC2FF;font-size:26px;animation-delay:2.1s;">{ }</span>
+    <span class="aic-float" style="--r:-4deg;position:absolute;top:42%;right:5%;color:#5E6B86;font-size:30px;animation-delay:1.1s;">→</span>
   </div>
 
-  <div style="position:relative;z-index:1;max-width:1320px;">
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.2em;text-transform:uppercase;color:#C85410;margin-bottom:30px;">Workshop para principiantes</div>
-    <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:104px;line-height:1.03;letter-spacing:-0.02em;margin:0;">Tus primeros pasos <br><span style="background:linear-gradient(115deg,#F2632B 0%,#D8447A 48%,#2A7BE4 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">programando con IA</span></h1>
-    <p style="font-size:36px;line-height:1.4;color:#56607A;margin:36px 0 0;max-width:1000px;">De una idea a tu primer prototipo, con inteligencia artificial.</p>
+  <div class="aic-rise" style="display:flex;align-items:center;gap:16px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" alt="The AI Collective" style="width:50px;height:50px;display:block;filter:drop-shadow(0 0 14px rgba(242,99,43,0.5));">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.26em;text-transform:uppercase;color:#8A94AC;">The AI Collective · Buenos Aires</span>
   </div>
 
-  <div style="display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;font-family:'IBM Plex Mono',monospace;font-size:24px;color:#67728A;border-top:1px solid rgba(14,20,36,0.10);padding-top:30px;">
-    <span>Workshop presencial · ~2 horas</span>
+  <div class="aic-rise" style="position:relative;z-index:1;max-width:1360px;animation-delay:.12s;">
+    <div style="display:inline-flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:23px;letter-spacing:0.2em;text-transform:uppercase;color:#FFC9A6;margin-bottom:30px;padding:11px 22px;border-radius:100px;background:rgba(242,99,43,0.14);border:1px solid rgba(242,99,43,0.38);">
+      <span style="width:9px;height:9px;border-radius:50%;background:#F2632B;box-shadow:0 0 12px #F2632B;"></span>Workshop para principiantes
+    </div>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:116px;line-height:1.0;letter-spacing:-0.025em;margin:0;">Tus primeros pasos <br><span class="aic-shimmer" style="background-image:linear-gradient(115deg,#F2632B 0%,#FF8A5B 22%,#D8447A 50%,#2A7BE4 82%,#7FB0FF 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">programando con IA</span><span class="aic-cursor" style="display:inline-block;width:38px;height:92px;background:#F2632B;margin-left:18px;border-radius:4px;vertical-align:-12px;box-shadow:0 0 24px rgba(242,99,43,0.7);"></span></h1>
+    <p style="font-size:37px;line-height:1.4;color:#AEB8D0;margin:38px 0 0;max-width:1000px;">De una idea a tu primer prototipo, con inteligencia artificial.</p>
+  </div>
+
+  <div class="aic-rise" style="display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;font-family:'IBM Plex Mono',monospace;font-size:24px;color:#8A94AC;border-top:1px solid rgba(255,255,255,0.12);padding-top:30px;animation-delay:.24s;">
+    <span style="display:inline-flex;align-items:center;gap:12px;"><span style="width:9px;height:9px;border-radius:50%;background:#34D17A;box-shadow:0 0 12px #34D17A;"></span>Workshop presencial · ~2 horas</span>
     <span>Sin experiencia previa</span>
   </div>
 </section>
@@ -641,6 +674,40 @@
   </div>
 </section>
 
+<!-- ════════ 18.1 · diVENUO — LOS AGENTES NO SON MAGIA ════════ -->
+<section data-label="Los agentes no son magia" data-screen-label="Agentes no son magia" data-speaker-notes="Esta es la idea más importante del caso. diVenuo se construyó en gran parte con Claude Code, pero los agentes no son 'magia que escribe código sola'. Rinden cuando les das tres cosas: (1) CONTEXTO Y MEMORIA: le dejo las decisiones escritas en archivos que lee antes de tocar nada, así recuerda entre sesiones y no reinventa ni rompe lo ya decidido. (2) LÍMITES CLAROS (guardrails): el agente puede mirar el estado real de producción pero NO modificarlo; lo irreversible siempre lo aprueba un humano. (3) UN PROCESO: planificar, delegar tareas, revisar, probar y recién ahí publicar. diVenuo es la prueba de que esto funciona: un SaaS en producción, con negocios reales de varios rubros, construido así. No hace falta saber programar para entender el principio: contexto + límites + proceso." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#161616;color:#F4F1EA;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;width:860px;height:860px;border-radius:50%;top:-360px;right:-240px;background:radial-gradient(circle,rgba(193,160,98,0.18),transparent 64%);pointer-events:none;"></div>
+  <div style="display:flex;align-items:center;gap:13px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:30px;height:30px;display:block;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.22em;text-transform:uppercase;color:#B6AE9C;">Caso 2 · Cómo se construyó</span>
+  </div>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:74px;line-height:1.05;letter-spacing:-0.02em;margin:34px 0 6px;position:relative;z-index:1;">Los agentes no son <span style="color:#C1A062;">magia</span></h2>
+  <p style="font-size:31px;color:#C9C2B4;margin:0;position:relative;z-index:1;">Rinden cuando les das tres cosas.</p>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;z-index:1;margin-top:40px;">
+    <div style="display:flex;flex-direction:column;padding:40px 34px;border-radius:22px;background:rgba(193,160,98,0.09);border:1px solid rgba(193,160,98,0.32);">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;color:#C1A062;letter-spacing:0.08em;">01</span>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:36px;margin:18px 0 14px;">Contexto y memoria</div>
+      <div style="font-size:26px;color:#C9C2B4;line-height:1.45;margin-top:auto;">Le dejo las decisiones escritas. Las lee antes de tocar nada — recuerda entre sesiones y no reinventa.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;padding:40px 34px;border-radius:22px;background:rgba(193,160,98,0.09);border:1px solid rgba(193,160,98,0.32);">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;color:#C1A062;letter-spacing:0.08em;">02</span>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:36px;margin:18px 0 14px;">Límites claros</div>
+      <div style="font-size:26px;color:#C9C2B4;line-height:1.45;margin-top:auto;">Puede <span style="color:#F4F1EA;font-weight:600;">mirar</span> lo que ya usan los clientes, pero no tocarlo. Lo irreversible lo aprueba un humano.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;padding:40px 34px;border-radius:22px;background:rgba(193,160,98,0.09);border:1px solid rgba(193,160,98,0.32);">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;color:#C1A062;letter-spacing:0.08em;">03</span>
+      <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:36px;margin:18px 0 14px;">Un proceso</div>
+      <div style="font-size:25px;color:#C9C2B4;line-height:1.5;margin-top:auto;">Planificar <span style="color:#8E8678;">→</span> delegar <span style="color:#8E8678;">→</span> revisar <span style="color:#8E8678;">→</span> probar <span style="color:#8E8678;">→</span> publicar.</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin-top:34px;position:relative;z-index:1;">
+    <span style="font-size:26px;color:#B6AE9C;margin-right:8px;">diVenuo es la prueba:</span>
+    <span style="padding:13px 22px;border-radius:100px;background:rgba(193,160,98,0.12);border:1px solid rgba(193,160,98,0.36);font-size:24px;color:#E7DEC9;">En producción</span>
+    <span style="padding:13px 22px;border-radius:100px;background:rgba(193,160,98,0.12);border:1px solid rgba(193,160,98,0.36);font-size:24px;color:#E7DEC9;">Negocios reales de varios rubros</span>
+    <span style="padding:13px 22px;border-radius:100px;background:rgba(193,160,98,0.12);border:1px solid rgba(193,160,98,0.36);font-size:24px;color:#E7DEC9;">Una vertical nueva, de cero</span>
+  </div>
+</section>
+
 <!-- ════════ 19 · CASO 3 ════════ -->
 <section data-label="Caso 3 — Tu propio agente de IA" data-screen-label="Caso 3" data-speaker-notes="Caso 3: crear un agente propio. Ejemplo concreto: un agente que cada 4 horas escribe y publica un tweet en X. Un temporizador dispara, el agente genera el texto, y lo publica." style="display:flex;flex-direction:column;padding:78px 104px 84px;background:#F4F6FB;color:#0E1424;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
   <div style="position:absolute;width:720px;height:720px;border-radius:50%;bottom:-320px;right:-220px;background:radial-gradient(circle,rgba(42,123,228,0.12),transparent 62%);pointer-events:none;"></div>
@@ -745,28 +812,33 @@
 </section>
 
 <!-- ════════ 23 · CIERRE ════════ -->
-<section data-label="Esto recién empieza" data-screen-label="Cierre" data-speaker-notes="Cierre y llamado a la acción. Invitá a sumarse a la comunidad de The AI Collective Buenos Aires, a venir a los próximos eventos y a compartir lo que construyan. Agradecé." style="display:flex;flex-direction:column;justify-content:space-between;padding:92px 104px;background:#FFFFFF;color:#0E1424;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
-  <div style="position:absolute;width:1100px;height:1100px;border-radius:50%;top:50%;left:62%;transform:translate(-50%,-50%);background:radial-gradient(circle at 38% 38%,rgba(242,99,43,0.24),rgba(216,68,122,0.12) 40%,rgba(42,123,228,0.18) 66%,transparent 76%);pointer-events:none;"></div>
-  <div style="display:flex;align-items:center;gap:16px;position:relative;z-index:1;">
-    <img src="assets/aic_logo_transparente.png" style="width:50px;height:50px;display:block;">
-    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.26em;text-transform:uppercase;color:#6A7384;">The AI Collective · Buenos Aires</span>
+<section data-label="Esto recién empieza" data-screen-label="Cierre" data-speaker-notes="Cierre y llamado a la acción. Invitá a sumarse a la comunidad de The AI Collective Buenos Aires, a venir a los próximos eventos y a compartir lo que construyan. Agradecé." style="display:flex;flex-direction:column;justify-content:space-between;padding:92px 104px;background:radial-gradient(140% 120% at 22% 18%,#13213D 0%,#0A1124 42%,#05080F 100%);color:#EAF0FF;font-family:'IBM Plex Sans',system-ui,sans-serif;overflow:hidden;">
+  <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.05) 1.4px,transparent 1.4px);background-size:38px 38px;mask-image:radial-gradient(120% 90% at 40% 50%,#000 35%,transparent 78%);-webkit-mask-image:radial-gradient(120% 90% at 40% 50%,#000 35%,transparent 78%);pointer-events:none;"></div>
+  <div class="aic-aurora" style="position:absolute;width:1080px;height:1080px;border-radius:50%;top:-280px;left:-220px;background:radial-gradient(circle at 40% 40%,rgba(242,99,43,0.4),rgba(216,68,122,0.20) 42%,transparent 70%);filter:blur(18px);pointer-events:none;"></div>
+  <div class="aic-aurora2" style="position:absolute;width:920px;height:920px;border-radius:50%;bottom:-340px;right:-260px;background:radial-gradient(circle,rgba(42,123,228,0.42),transparent 66%);filter:blur(14px);pointer-events:none;"></div>
+
+  <div class="aic-rise" style="display:flex;align-items:center;gap:16px;position:relative;z-index:1;">
+    <img src="assets/aic_logo_transparente.png" style="width:50px;height:50px;display:block;filter:drop-shadow(0 0 14px rgba(242,99,43,0.5));">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:24px;letter-spacing:0.26em;text-transform:uppercase;color:#8A94AC;">The AI Collective · Buenos Aires</span>
   </div>
   <div style="flex:1;display:flex;align-items:center;gap:90px;position:relative;z-index:1;">
-    <div style="flex:1.1;">
-      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:96px;line-height:1.02;letter-spacing:-0.02em;margin:0;">Esto <span style="background:linear-gradient(115deg,#F2632B,#D8447A 50%,#2A7BE4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">recién empieza</span>.</h2>
-      <p style="font-size:36px;color:#56607A;margin:32px 0 0;max-width:620px;line-height:1.4;">Sumate a la comunidad y seguí construyendo con IA.</p>
+    <div class="aic-rise" style="flex:1.1;animation-delay:.1s;">
+      <div style="display:inline-flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:22px;letter-spacing:0.2em;text-transform:uppercase;color:#9BC2FF;margin-bottom:26px;padding:10px 20px;border-radius:100px;background:rgba(42,123,228,0.14);border:1px solid rgba(42,123,228,0.4);">Gracias por venir</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:104px;line-height:1.0;letter-spacing:-0.025em;margin:0;">Esto <span class="aic-shimmer" style="background-image:linear-gradient(115deg,#F2632B 0%,#FF8A5B 22%,#D8447A 50%,#2A7BE4 82%,#7FB0FF 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">recién empieza</span>.</h2>
+      <p style="font-size:37px;color:#AEB8D0;margin:32px 0 0;max-width:640px;line-height:1.4;">Sumate a la comunidad y seguí construyendo con IA.</p>
       <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:42px;">
-        <div style="padding:20px 30px;border-radius:14px;background:rgba(14,20,36,0.05);border:1px solid rgba(14,20,36,0.12);font-size:26px;font-weight:500;">Próximos eventos</div>
-        <div style="padding:20px 30px;border-radius:14px;background:rgba(14,20,36,0.05);border:1px solid rgba(14,20,36,0.12);font-size:26px;font-weight:500;">Compartí lo que construyas</div>
+        <div style="padding:20px 30px;border-radius:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);font-size:26px;font-weight:500;color:#D6DEF2;">Próximos eventos</div>
+        <div style="padding:20px 30px;border-radius:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);font-size:26px;font-weight:500;color:#D6DEF2;">Compartí lo que construyas</div>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;align-items:center;gap:24px;">
-      <div style="background:#FFFFFF;border-radius:26px;padding:34px;box-shadow:0 30px 80px rgba(0,0,0,0.45);display:flex;">
-        <img src="assets/wsp_qr.png" alt="QR grupo de WhatsApp" style="width:320px;height:320px;display:block;">
+    <div class="aic-rise" style="display:flex;flex-direction:column;align-items:center;gap:24px;animation-delay:.22s;">
+      <div style="position:relative;background:#FFFFFF;border-radius:26px;padding:34px;box-shadow:0 30px 90px rgba(242,99,43,0.28),0 0 0 1px rgba(255,255,255,0.08);display:flex;overflow:hidden;">
+        <div class="aic-sheen" style="position:absolute;top:0;left:0;width:60px;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.7),transparent);pointer-events:none;"></div>
+        <img src="assets/wsp_qr.png" alt="QR grupo de WhatsApp" style="width:320px;height:320px;display:block;position:relative;">
       </div>
       <div style="display:flex;align-items:center;gap:14px;">
-        <span style="width:13px;height:13px;border-radius:50%;background:#25D366;flex-shrink:0;"></span>
-        <span style="font-size:26px;font-weight:500;color:#3C4456;">Sumate al grupo de difusión</span>
+        <span style="width:13px;height:13px;border-radius:50%;background:#25D366;box-shadow:0 0 12px #25D366;flex-shrink:0;"></span>
+        <span style="font-size:26px;font-weight:500;color:#D6DEF2;">Sumate al grupo de difusión</span>
       </div>
     </div>
   </div>
