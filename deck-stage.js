@@ -1358,9 +1358,9 @@
       this._rail.inert = hard || !this._railVisible;
     }
 
+    // Left-click anywhere on the stage advances to the next slide (desktop
+    // and touch alike). Right-click goes back (see _onContextMenu).
     _onTap(e) {
-      // Touch-only — keyboard + the overlay toolbar cover nav on desktop.
-      if (FINE_POINTER_MQ.matches) return;
       // Only taps that land on the stage (slide content or letterbox); the
       // overlay / rail / menus are siblings with their own click handlers.
       const path = e.composedPath();
@@ -1375,12 +1375,10 @@
         if (n.matches && n.matches(INTERACTIVE_SEL)) return;
       }
       e.preventDefault();
-      const rw = this._railWidth();
-      const mid = rw + (window.innerWidth - rw) / 2;
-      this._advance(e.clientX < mid ? -1 : 1, 'tap');
+      this._advance(1, 'click');
     }
 
-    // Right-click anywhere on the stage advances to the next slide (and
+    // Right-click anywhere on the stage goes to the previous slide (and
     // suppresses the browser context menu there). The rail/menu/overlay are
     // siblings with their own contextmenu handlers, so a right-click on a
     // thumbnail still opens the edit menu rather than navigating.
@@ -1395,7 +1393,7 @@
         if (n.matches && n.matches(INTERACTIVE_SEL)) return;
       }
       e.preventDefault();
-      this._advance(1, 'click');
+      this._advance(-1, 'click');
     }
 
     _onKey(e) {
