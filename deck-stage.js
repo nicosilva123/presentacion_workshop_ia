@@ -596,6 +596,7 @@
       this._onSlotChange = this._onSlotChange.bind(this);
       this._onMouseMove = this._onMouseMove.bind(this);
       this._onTap = this._onTap.bind(this);
+      this._onContextMenu = this._onContextMenu.bind(this);
       this._onMessage = this._onMessage.bind(this);
       // Capture-phase close so a click anywhere dismisses the menu, but
       // ignore clicks that land inside the menu itself — otherwise the
@@ -628,6 +629,7 @@
       window.addEventListener('message', this._onMessage);
       window.addEventListener('click', this._onDocClick, true);
       this.addEventListener('click', this._onTap);
+      this.addEventListener('contextmenu', this._onContextMenu);
       // Print lays every slide out as its own page, so [data-deck-active]-
       // gated entrance styles need the attribute on every slide (not just
       // the current one) or their content prints at the hidden base style.
@@ -858,6 +860,7 @@
       window.removeEventListener('afterprint', this._onAfterPrint);
       if (this._freezeStyle) { this._freezeStyle.remove(); this._freezeStyle = null; }
       this.removeEventListener('click', this._onTap);
+      this.removeEventListener('contextmenu', this._onContextMenu);
       if (this._hideTimer) clearTimeout(this._hideTimer);
       if (this._mouseIdleTimer) clearTimeout(this._mouseIdleTimer);
       if (this._liveTimer) clearTimeout(this._liveTimer);
@@ -1375,6 +1378,24 @@
       const rw = this._railWidth();
       const mid = rw + (window.innerWidth - rw) / 2;
       this._advance(e.clientX < mid ? -1 : 1, 'tap');
+    }
+
+    // Right-click anywhere on the stage advances to the next slide (and
+    // suppresses the browser context menu there). The rail/menu/overlay are
+    // siblings with their own contextmenu handlers, so a right-click on a
+    // thumbnail still opens the edit menu rather than navigating.
+    _onContextMenu(e) {
+      const path = e.composedPath();
+      if (!this._stage || !path.includes(this._stage)) return;
+      if (e.defaultPrevented) return;
+      // Let interactive slide content (links, buttons, editable text) keep
+      // the native right-click menu.
+      for (const n of path) {
+        if (n === this._stage) break;
+        if (n.matches && n.matches(INTERACTIVE_SEL)) return;
+      }
+      e.preventDefault();
+      this._advance(1, 'click');
     }
 
     _onKey(e) {
